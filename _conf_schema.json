@@ -1,0 +1,110 @@
+{
+  "tick_seconds": {
+    "description": "后台结算间隔（秒）",
+    "type": "int",
+    "default": 900,
+    "hint": "每轮跑一次衰减与晋升判定，15 分钟一次足够"
+  },
+  "decay_scale": {
+    "description": "衰减倍率",
+    "type": "float",
+    "default": 1.0,
+    "hint": "1.0 为默认速度；调小衰减变慢（记忆更耐久），调大变快"
+  },
+  "half_life_short_days": {
+    "description": "短期池半衰期（天）",
+    "type": "float",
+    "default": 7
+  },
+  "half_life_mid_days": {
+    "description": "中期池半衰期（天）",
+    "type": "float",
+    "default": 45
+  },
+  "half_life_long_days": {
+    "description": "长期池半衰期（天）",
+    "type": "float",
+    "default": 180
+  },
+  "half_life_archive_days": {
+    "description": "归档池半衰期（天）",
+    "type": "float",
+    "default": 540
+  },
+  "inject_mode": {
+    "description": "记忆注入模式",
+    "type": "string",
+    "default": "primary",
+    "hint": "off=不注入；supplement=只补充旧链路没覆盖到的（安全默认）；primary=只用新库"
+  },
+  "recall_top": {
+    "description": "每次召回条数",
+    "type": "int",
+    "default": 4
+  },
+  "inject_budget_chars": {
+    "description": "注入字符预算",
+    "type": "int",
+    "default": 420
+  },
+  "embedding_api_base": {
+    "description": "向量服务地址",
+    "type": "string",
+    "default": "http://ollama:11434/v1",
+    "hint": "容器内访问 Ollama：默认用 compose 服务名 ollama；如果你的 Ollama 不在同一 docker 网络，改成宿主机地址（Linux 用 172.17.0.1，Windows/Mac 用 host.docker.internal）"
+  },
+  "embedding_model": {
+    "description": "向量模型",
+    "type": "string",
+    "default": "bge-m3"
+  },
+  "embedding_api_key": {
+    "description": "向量服务密钥（Ollama 留空）",
+    "type": "string",
+    "default": ""
+  },
+  "embedding_timeout": {
+    "description": "向量请求超时（秒）",
+    "type": "float",
+    "default": 12
+  },
+  "token_budget": {
+    "description": "上下文总预算（token，估）",
+    "type": "int",
+    "default": 6000
+  },
+  "memory_ratio": {
+    "description": "记忆注入占比",
+    "type": "float",
+    "default": 0.12,
+    "hint": "6000×0.12≈720 token，约 600 字；调大记忆更多、人格和对话被挤"
+  },
+  "skill_self_eval": {
+    "description": "技能自评方式",
+    "type": "string",
+    "default": "heuristic",
+    "hint": "heuristic=按回复内容打分（不花钱）；llm=让她自己打分（要一次模型调用）；off=只用用户反馈"
+  },
+  "self_weight": {
+    "description": "自评权重",
+    "type": "float",
+    "default": 0.5,
+    "hint": "0=完全听用户反馈，1=完全听她自己；0.5 各一半"
+  },
+  "promote_mid": {
+    "description": "晋升中期池阈值",
+    "type": "float",
+    "default": 0.35
+  },
+  "promote_long": {
+    "description": "晋升长期池阈值",
+    "type": "float",
+    "default": 0.6
+  },
+  "vision_note": {
+    "description": "图片描述提醒",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后她会知道自己只有一句图片描述；没有视觉模型时也不会瞎猜图里是什么"
+  }
+}

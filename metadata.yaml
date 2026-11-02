@@ -1,0 +1,13 @@
+name: dafeiyu_mindcore
+display_name: 大肥鱼心智内核
+short_desc: 会遗忘、会晋升、会熟练的记忆库，带向量召回与技能 SM2
+desc: 独立记忆库：权重/年龄/回想次数 + 分段衰减 + 海马晋升 + 向量召回 + 技能 SM2 + 离线补偿 + 生命卡
+help: 装上自动从 memory.db / brain.db 只读导入种子。命令：/心智 看统计，/心智找 关键词，/心智衰减 手动结算
+version: 1.1.0
+author: Caoran1314
+category: AI 增强
+astrbot_version: ">=4.24.0"
+support_platforms:
+  - aiocqhttp
+  - webchat
+repo: https://github.com/Caoran1314/dafeiyu_mindcore
